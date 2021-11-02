@@ -48,19 +48,45 @@ function mainMenu() {
   var accountType = parseInt(prompt("What are we doing today?"+"\n1. View balance?"+"\n2. Make a deposit?"+"\n3. Make a withdrawal?"+"\n4. Quit"+"\nPlease enter the numerical value for entry"));
 	if(accountType===1){
 		console.log(sum);
-  mainMenu();} 
+  mainMenu2();} 
    else if(accountType===2){
 		console.log(Deposit());
+    mainMenu2();
 	}
   else if(accountType===3){
     console.log(withdraw());
+    mainMenu2();
+  }
+  else if(accountType===4){
+    console.log("Goodbye!")
+  }
+}
+function mainMenu2() {
+  //TODO: Set up a main menu.  Prompt users for ATM selection to do the following:
+  //! Remember - we should keep prompting the user for options until they quit!
+  //Get current balance
+  //Make a deposit
+  //Make a withdrawal
+  //Restart
+  //Quit
+  var accountType = parseInt(prompt("What else are we doing today?"+"\n1. View balance?"+"\n2. Make a deposit?"+"\n3. Make a withdrawal?"+"\n4. All done"+"\nPlease enter the numerical value for entry"));
+	if(accountType===1){
+		console.log(sum);
+  mainMenu2();} 
+   else if(accountType===2){
+		console.log(Deposit());
+    mainMenu2();
+	}
+  else if(accountType===3){
+    console.log(withdraw());
+    mainMenu2();
   }
   else if(accountType===4){
     console.log("Goodbye!")
   }
 }
 
-module.exports={
-  main: mainMenu,
-};
+
+
+
 //TODO: Call mainMenu function to start our app!

@@ -4,7 +4,6 @@ const {Balance} = require("./account");
 const {Pin} = require("./account");
 const {username}=require("./account");
 const prompt =require("prompt-sync")();
-const main= require("./index");
 let bal =Balance;
 
 function getBalance(accountBalance) {
@@ -22,7 +21,7 @@ function withdraw() {
 				bal -= withdrawalAmount;
 				console.log("Transaction successful!");
 				console.log("Your remaining balance is $" + bal);
-				toContinue();
+				// toContinue();
 			} else {
 				console.log("You do not have sufficient funds!");
 				withdraw();
@@ -44,7 +43,7 @@ function deposit(depositAmount) {
 	if (depositAmount !== "" && depositAmount !== null && !isNaN(depositAmount)) {
 		bal += depositAmount;
 		console.log("You have successfully deposited $" + depositAmount + "\n" + "You now have $" + bal);
-		toContinue();
+		// toContinue();
 	} else {
 		console.log("Error: please enter a number!");
 		deposit();
@@ -67,25 +66,25 @@ function validatePin(userInput) {
           validatePin();
 }}
 
-function toContinue(){
-  var yesOrNo = parseInt(prompt("Would you like to perform another transaction? \n 1. Yes \n 2. No"));
-if (yesOrNo===1){
-  main();
-}
-else if(yesOrNo===2){
-  console.log("Goodbye!")
-}
-else {
-  console.log("Please make a valid selection");
-  toContinue();
-}}
+// function toContinue(){
+//   var yesOrNo = parseInt(prompt("Would you like to perform another transaction? \n 1. Yes \n 2. No"));
+// if (yesOrNo===1){
+//   main();
+// }
+// else if(yesOrNo===2){
+//   console.log("Goodbye!")
+// }
+// else {
+//   console.log("Please make a valid selection");
+//   toContinue();
+// }}
 
-//TODO: Export these functions
+// //TODO: Export these functions
 
 module.exports={
   balance: getBalance,
   withdraw: withdraw,
   PinEntry: validatePin,
   Deposit: deposit,
-  continue: toContinue,
+  // continue: toContinue,
 };
